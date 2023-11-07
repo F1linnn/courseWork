@@ -1,11 +1,11 @@
 body{
-    background: url("/movie_recommendation/movies/css/images/maks.jpg") no-repeat;
+    background: url("/images/maks.jpg") no-repeat;
     background-size: cover;
     background-attachment: fixed;
     overflow-x: hidden;
 }
 
-/* Стиль для .navbar */
+
 .navbar {
     background-color: #aa2121; /* Цвет фона для навигационной панели */
     color: rgb(99, 57, 57); /* Цвет текста */
