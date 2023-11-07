@@ -4,6 +4,9 @@
     <title>Movie List</title>
 </head>
 <body>
+    <div class="navbar">
+        <a href="{% url 'registration_page' %}" class="btn btn-primary">Войти / Зарегистрироваться</a>
+    </div>
     <h1>Movies</h1>
     <ul>
         {% for movie in movies %}

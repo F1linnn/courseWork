@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница Регистрации и Авторизации</title>
+</head>
+<body>
+ <h1>Добро пожаловать на страницу регистрации и авторизации</h1>
+
+ <form method="post">
+    {% csrf_token %}
+    {% for f in form %}
+    <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+     <button type="submit">Register</button>
+    </form>
+
+<a href="{% url 'auth_page' %}">Do you have account? Log in</a>
+
+ </body>
+</html>
