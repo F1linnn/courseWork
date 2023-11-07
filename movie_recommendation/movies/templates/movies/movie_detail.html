@@ -1,13 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Детали фильма</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/movie_detail.css'%}" type="text/css">
+    <title>Movie Description</title>
 </head>
 <body>
-    <h1>Детали фильма</h1>
-    <p><strong>Название:</strong> {{ movie.title }}</p>
-    <p><strong>Описание:</strong> {{ movie.overview }}</p>
-    <p><strong>Рейтинг:</strong> {{ movie.rating }}</p>
+    <div class="movie-container">
+        <div class="movie-header">
+            <h1 class="movie-title"> {{ movie.title }}</h1>
+            <p class="movie-genres"> {{ movie.genres }} </p>
+        </div>
+    <div class="movie-details">
+        <p class="movie-info"> Original language: {{ movie.original_language }} </p>
+        <p class="movie-info"> Budget: {{ movie.budget }} </p>
+        <p class="movie-info"> Runtime: {{ movie.runtime }} </p>
+        <p class="movie-info"> Production companies: {{ movie.production_companies }} </p>
+        <p class="movie-info"> Production countries: {{ movie.production_countries }} </p>
+    </div>
+    <div class="movie-description">
+        <h2>Overview</h2>
+        <p class="overview"> {{ movie.overview }} </p>
+    </div>
+    <div class="movie-footer">
+        <p class="movie-rating"> Rating: {{ movie.rating }} </p>
+    </div>
+    <div class="movie-keywords">
+        <h2>Keywords</h2>
+        <p class="movie-info">
+            {{ movie.keywords }}
+        </p>
+    </div>
+    </div>
     <!-- Другая информация о фильме -->
 
 {% if user.is_authenticated %}
