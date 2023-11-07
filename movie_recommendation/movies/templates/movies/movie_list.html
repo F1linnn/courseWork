@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Movie List</title>
-    <link rel="stylesheet" href="movie_recommendation/movies/css/movie_list.css">
+    <link rel="stylesheet" href="{% static 'css/movie_list.css'%}" type="text/css">
 </head>
 <body>
     <div class="navbar">
@@ -15,7 +16,7 @@
 
     <form method="GET" action="{% url 'search_movies' %}">
         <input type="text" name="q" placeholder="Поиск фильма">
-        <button type="submit">Поиск</button>
+        <button type="submit" >Поиск</button>
     </form>
 
     <h1>Movies</h1>
