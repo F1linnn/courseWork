@@ -1,10 +1,9 @@
 body{
-    background: url("../img/maks.jpg") no-repeat;
+    background: url("../img/back_movie_list.jpg") no-repeat;
     background-size: cover;
     background-attachment: fixed;
     overflow-x: hidden;
 }
-
 
 
 
@@ -15,17 +14,13 @@ head{
 }
 
 
-.navbar {
-    background-color: #aa2121; /* Цвет фона для навигационной панели */
-    color: rgb(99, 57, 57); /* Цвет текста */
-}
 
 /* Стиль для кнопок */
 .btn {
     padding: 10px 20px;
     text-decoration: none;
-    color: #fd0202a4;
-    background-color: #346599;
+    color: #02fd56a4;
+    /*background-color: #3b526b;*/
     border: none;
     border-radius: 5px;
 }
