@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ccc;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #111;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.movie-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.movie-title {
+    font-size: 24px;
+}
+
+.movie-genres {
+    font-size: 14px;
+    color: #888;
+}
+
+.movie-details {
+    margin-bottom: 20px;
+}
+
+.movie-info {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.movie-description {
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.movie-description h2 {
+    font-size: 18px;
+    margin: 0;
+    color: #fff;
+}
+
+.overview {
+    font-size: 16px;
+}
+
+.movie-footer {
+    text-align: right;
+}
+
+.movie-rating {
+    font-size: 20px;
+    color: #e50914;
+}
+
+.movie-keywords {
+    margin-top: 20px;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.movie-keywords h2 {
+    font-size: 18px;
+    margin: 0;
+    color: #fff;
+}
+
+.keywords-list {
+    list-style: none;
+    padding: 0;
+}
+
+.keywords-list li {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+    font-style: italic; /* Устанавливаем курсивное начертание */
+    margin: 5px 0;
+}
+
+.keywords-list li::before {
+    content: "#"; /* Добавляем символ "#" перед каждым ключевым словом */
+    margin-right: 5px; /* Добавляем отступ между символом "#" и ключевым словом */
+    color: #e50914; /* Устанавливаем цвет символа "#" */
+}
