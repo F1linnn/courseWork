@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Movie
 from .forms import *
 from django.contrib.auth import login, authenticate
@@ -69,3 +69,7 @@ class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('logout_success')
 def logout_success(request):
     return redirect('/movies')
+
+def movie_detail(request, movie_id):
+    movie = get_object_or_404(Movie, id=movie_id)
+    return render(request, 'movies/movie_detail.html', {'movie': movie})
