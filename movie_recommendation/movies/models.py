@@ -15,5 +15,5 @@ class Movie(models.Model):
     budget = models.IntegerField()
     # release_year = models.IntegerField()
     rating = models.FloatField()
-    histories = models.ForeignKey(User, blank=True, on_delete=models.DO_NOTHING, null=True)
+    histories = models.ForeignKey(User, blank=True, on_delete=models.DO_NOTHING)
 
