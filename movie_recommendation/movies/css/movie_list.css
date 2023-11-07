@@ -1,0 +1,6 @@
+body{
+    background: url("movie_recommendation/images/back_movie_list.jpg") no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
