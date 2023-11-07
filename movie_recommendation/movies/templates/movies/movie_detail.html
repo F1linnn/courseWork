@@ -9,5 +9,14 @@
     <p><strong>Описание:</strong> {{ movie.overview }}</p>
     <p><strong>Рейтинг:</strong> {{ movie.rating }}</p>
     <!-- Другая информация о фильме -->
+
+{% if user.is_authenticated %}
+        <form method="post" action="{% url 'add_to_history' movie.id %}">
+            {% csrf_token %}
+            <button type="submit">Добавить в историю</button>
+        </form>
+    {% else %}
+        <p>Чтобы добавить фильм в историю просмотра, войдите в систему.</p>
+    {% endif %}
 </body>
 </html>
