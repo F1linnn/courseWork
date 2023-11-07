@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Movie
+from .models import WatchedMovie
 from .forms import *
 from django.contrib.auth import login, authenticate
 from django.views.generic.edit import CreateView
@@ -62,10 +62,16 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return reverse_lazy('user_profile')
 
+# @login_required
+# # def user_profile(request):
+# #     user = request.user
+# #     return render(request, 'movies/user_profile.html', {'user': user})
+
 @login_required
 def user_profile(request):
     user = request.user
-    return render(request, 'movies/user_profile.html', {'user': user})
+    watched_movies = WatchedMovie.objects.filter(user=user)
+    return render(request, 'movies/user_profile.html', {'user': user, 'watched_movies': watched_movies})
 
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('logout_success')
@@ -81,15 +87,9 @@ def movie_detail(request, movie_id):
 def add_to_history(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
 
-    if movie.histories is None:
-        movie.histories = request.user
-    # Проверяем, что текущий пользователь не добавил фильм в историю просмотра
-    if movie.histories.filter(id=request.user.id).exists():
-        # Пользователь уже просматривал этот фильм
-        pass
-    else:
-        # Пользователь ещё не просматривал этот фильм, добавляем его в историю
-        movie.histories.add(request.user)
+    # Проверяем, что пользователь ещё не добавил фильм в историю просмотра
+    if not WatchedMovie.objects.filter(user=request.user, movie=movie).exists():
+        WatchedMovie.objects.create(user=request.user, movie=movie)
 
     return render(request, 'movies/movie_detail.html', {'movie': movie})
 
