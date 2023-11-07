@@ -5,7 +5,11 @@
 </head>
 <body>
     <div class="navbar">
+        {% if user.is_authenticated %}
+        <a href="{% url 'user_profile' %}" class="btn btn-primary">Личная страница</a>
+    {% else %}
         <a href="{% url 'registration_page' %}" class="btn btn-primary">Войти / Зарегистрироваться</a>
+    {% endif %}
     </div>
     <h1>Movies</h1>
     <ul>

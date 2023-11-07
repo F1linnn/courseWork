@@ -1,9 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Movie
 from .forms import *
 from django.contrib.auth import login, authenticate
 from django.views.generic.edit import CreateView
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 # import csv
 
@@ -36,7 +37,7 @@ def movie_list(request):
 class RegisterUser(CreateView):
     form_class = RegistrationForm
     template_name = 'movies/registration_page.html'
-    success_url = reverse_lazy('movie_list')
+    success_url = reverse_lazy('user_profile')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -57,10 +58,14 @@ class LoginUser(LoginView):
         return context
 
     def get_success_url(self):
-        return reverse_lazy('/movies')
+        return reverse_lazy('user_profile')
 
-# def registration_page(request):
-#     return render(request, 'movies/registration_page.html')
+@login_required
+def user_profile(request):
+    user = request.user
+    return render(request, 'movies/user_profile.html', {'user': user})
 
-
-# user = request.user
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('logout_success')
+def logout_success(request):
+    return redirect('/movies')
