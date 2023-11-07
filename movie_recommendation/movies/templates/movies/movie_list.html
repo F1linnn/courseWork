@@ -12,6 +12,12 @@
         <a href="{% url 'registration_page' %}" class="btn btn-primary" color="green">Sign Up</a>
     {% endif %}
     </div>
+
+    <form method="GET" action="{% url 'search_movies' %}">
+        <input type="text" name="q" placeholder="Поиск фильма">
+        <button type="submit">Поиск</button>
+    </form>
+
     <h1>Movies</h1>
     <ul>
         {% for movie in movies %}

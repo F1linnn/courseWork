@@ -10,5 +10,6 @@ urlpatterns = [
     path('custom_logout/', views.CustomLogoutView.as_view(), name='logout'),
     path('logout_success/', views.logout_success, name='logout_success'),
     path('movie/<int:movie_id>/', views.movie_detail, name='movie_detail'),
+    path('search/', views.search_movies, name='search_movies'),
 
 ]
