@@ -11,9 +11,10 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #111;
+    background: url("../img/background.jpg") no-repeat;
+    background-size: cover;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(41, 40, 40, 0.5);
 }
 
 .movie-header {
@@ -27,7 +28,7 @@ body {
 
 .movie-genres {
     font-size: 14px;
-    color: #888;
+    color: #000000;
 }
 
 .movie-details {
@@ -36,11 +37,13 @@ body {
 
 .movie-info {
     font-size: 16px;
+    color: #000000;
     margin: 5px 0;
 }
 
 .movie-description {
-    background-color: #222;
+    background: url("../img/background_overview.jpg") no-repeat;
+    background-size: cover;
     padding: 10px;
     border-radius: 5px;
 }
@@ -61,7 +64,7 @@ body {
 
 .movie-rating {
     font-size: 20px;
-    color: #e50914;
+    color: #ffc400;
 }
 
 .movie-keywords {
