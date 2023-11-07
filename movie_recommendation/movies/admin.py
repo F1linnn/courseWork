@@ -8,3 +8,4 @@ class MovieAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug_title': ('title',)}
 
 admin.site.register(Movie, MovieAdmin)
+admin.site.register(WatchedMovie)

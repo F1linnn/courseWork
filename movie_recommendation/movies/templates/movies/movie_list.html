@@ -11,6 +11,7 @@
         <a href="{% url 'user_profile' %}" class="btn btn-primary">Личная страница</a>
     {% else %}
         <a href="{% url 'registration_page' %}" class="btn btn-primary" >Sign Up</a>
+        <a href="{% url 'auth_page' %}" class="btn btn-primary" >Log in</a>
     {% endif %}
     </div>
 

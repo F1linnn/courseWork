@@ -12,5 +12,17 @@
         {% csrf_token %}
         <button type="submit">Выход</button>
     </form>
+ <a href="{% url 'movie_list' %}">Вернуться на главную</a>
+
+<a href="{% url 'user_profile' %}" class="btn btn-primary">Просмотр истории</a>
+
+<h2>История просмотров</h2>
+<ul>
+    {% for watched_movie in watched_movies %}
+        <li>{{ watched_movie.movie.title }}</li>
+    {% empty %}
+        <li>Вы еще не просматривали ни одного фильма.</li>
+    {% endfor %}
+</ul>
 </body>
 </html>
