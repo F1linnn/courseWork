@@ -8,6 +8,15 @@
 </head>
 <body>
     <div class="movie-container">
+        {% if user.is_authenticated %}
+        <form method="post" action="{% url 'add_to_history' movie.id %}">
+            {% csrf_token %}
+            <input type="number" data-tooltip="Enter rate from 1 to 10" class='input_rate' name="rating" min="1" max="10" required>
+            <button type="submit" class = "btn_add">+</button>
+        </form>
+    {% else %}
+        <p>Чтобы добавить фильм в историю просмотра, войдите в систему.</p>
+    {% endif %}
         <div class="movie-header">
             <h1 class="movie-title"> {{ movie.title }}</h1>
             <p class="movie-genres"> {{ movie.genres }} </p>
@@ -35,14 +44,6 @@
     </div>
 
 
-{% if user.is_authenticated %}
-        <form method="post" action="{% url 'add_to_history' movie.id %}">
-            {% csrf_token %}
-            <input type="number" name="rating" min="1" max="10" placeholder="Введите рейтинг от 1 до 10" required>
-            <button type="submit">Добавить в историю</button>
-        </form>
-    {% else %}
-        <p>Чтобы добавить фильм в историю просмотра, войдите в систему.</p>
-    {% endif %}
+
 </body>
 </html>

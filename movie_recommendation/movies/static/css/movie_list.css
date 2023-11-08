@@ -17,10 +17,18 @@ head{
 
 /* Стиль для кнопок */
 .btn {
-    padding: 10px 20px;
+    background-image: url('../img/myAccount.jpg'); /* Замените 'путь_к_изображению.jpg' на путь к вашему изображению */
+    background-size: cover; /* Растянуть изображение, чтобы оно занимало всю кнопку */
+    background-repeat: no-repeat; /* Запрет повтора изображения */
+    color: transparent; /* Сделать текст на кнопке невидимым */
+    border: none;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    /*padding: 10px 20px;
     text-decoration: none;
     color: #02fd56a4;
-    /*background-color: #3b526b;*/
+    /*background-color: #3b526b;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px;*/
 }
