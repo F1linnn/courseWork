@@ -14,8 +14,8 @@
         </div>
     <div class="movie-details">
         <p class="movie-info"> Original language: {{ movie.original_language }} </p>
-        <p class="movie-info"> Budget: {{ movie.budget }} </p>
-        <p class="movie-info"> Runtime: {{ movie.runtime }} </p>
+        <p class="movie-info"> Budget: {{ movie.budget }} $</p>
+        <p class="movie-info"> Runtime: {{ movie.runtime }} min</p>
         <p class="movie-info"> Production companies: {{ movie.production_companies }} </p>
         <p class="movie-info"> Production countries: {{ movie.production_countries }} </p>
     </div>
@@ -33,7 +33,7 @@
         </p>
     </div>
     </div>
-    <!-- Другая информация о фильме -->
+
 
 {% if user.is_authenticated %}
         <form method="post" action="{% url 'add_to_history' movie.id %}">
