@@ -1,0 +1,49 @@
+body {
+    background-color: #795e8d; /* Фон страницы */
+    font-family: Arial, sans-serif;
+    color: #fff; /* Цвет текста */
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+form {
+    background-color: #b8a2c8; /* Фон формы */
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-label {
+    color: #fff; /* Цвет текста метки */
+}
+
+.form-error {
+    color: #ff0000; /* Цвет текста ошибки */
+}
+
+button {
+    background-color: #795e8d; /* Цвет кнопки Register */
+    color: #fff; /* Цвет текста кнопки Register */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #633b72; /* Изменение цвета кнопки при наведении */
+}
+
+a {
+    color: #fff; /* Цвет ссылки "Do you have account? Log in" */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Подчеркивание ссылки при наведении */
+}
