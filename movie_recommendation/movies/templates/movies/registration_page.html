@@ -9,14 +9,14 @@
 <body>
  <h1>Добро пожаловать на страницу регистрации и авторизации</h1>
 
- <form method="post">
+ {% comment %} <form method="post">
     {% csrf_token %}
     {% for f in form %}
     <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
     <div class="form-error">{{ f.errors }}</div>
     {% endfor %}
      <button type="submit">Register</button>
-    </form>
+    </form> {% endcomment %}
 
 <a href="{% url 'auth_page' %}">Do you have account? Log in</a>
 
@@ -28,7 +28,13 @@
             <div class="sign-in-htm">
                 <form method="post">
                     {% csrf_token %}
-                    <div class="group">
+                    {% for f in form %}
+                    <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+                    <div class="form-error">{{ f.errors }}</div>
+                    {% endfor %}
+
+                    <button type="submit">Log In</button>
+                    {% comment %} <div class="group">
                         <label for="{{ form.username.id_for_label }}" class="label">Username</label>
                         {{ form.username }}
                     </div>
@@ -38,21 +44,31 @@
                     </div>
                     <div class="group">
                         <input type="submit" class="button" value="Sign In">
-                    </div>
+                    </div> {% endcomment %}
                 </form>
                 <div class="hr"></div>
                 <div class="foot-lnk">
                     <label for="tab-2">Register?</label>
                 </div>
-            </div>
+            </div> 
             <div class="sign-up-htm">
                 <form method="post">
+                {% csrf_token %}
+                {% comment %} <form method="post">
                     {% csrf_token %}
+                    {% for f in form %}
+    <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}     {% endcomment %}
+                    {% for f in form %}
                     <div class="group">
-                        <label for="{{ registration_form.username.id_for_label }}" class="label">Username</label>
-                        {{ registration_form.username }}
+                        <label for="{{ f.id_for_label }}" class="label">{{f.label}}</label>
+                        {{ f }}
                     </div>
-                    <div class="group">
+                    {% endfor %}
+                        <button type="submit">Register</button>
+       
+                    {% comment %} <div class="group">
                         <label for="{{ registration_form.password1.id_for_label }}" class="label">Password</label>
                         {{ registration_form.password1 }}
                     </div>
@@ -66,7 +82,7 @@
                     </div>
                     <div class="group">
                         <input type="submit" class="button" value="Sign Up">
-                    </div>
+                    </div> {% endcomment %}
                 </form>
                 <div class="hr"></div>
                 <div class="foot-lnk">
