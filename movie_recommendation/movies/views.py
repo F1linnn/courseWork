@@ -6,7 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-# from .alg_recommendation import recommend_movies
+from .alg_recommendation import recom
 # import csv
 
 def movie_list(request):
@@ -90,10 +90,8 @@ def search_movies(request):
     return render(request, 'movies/movie_list.html', {'movies': movies})
 
 
-def get_recommendations(request):
-    n_recommendations = 5  # Количество рекомендаций, которое вы хотите вернуть
-    recommended_movies = recommend_movies(request.user.id, n_recommendations)
-
-    movie_data = [{'title': movie.title, 'overview': movie.overview} for movie in recommended_movies]
-
-    return JsonResponse({'recommendations': movie_data})
+def run_server_script(request):
+    recom()
+    user = request.user
+    watched_movies = WatchedMovie.objects.filter(user=user)
+    return render(request, 'movies/user_profile.html', {'user': user, 'watched_movies': watched_movies})

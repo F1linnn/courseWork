@@ -19,7 +19,71 @@
 
 <a href="{% url 'auth_page' %}">Do you have account? Log in</a>
 
- </body>
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="group">
+                        <label for="{{ form.username.id_for_label }}" class="label">Username</label>
+                        {{ form.username }}
+                    </div>
+                    {% csrf_token %}
+                    <div class="group">
+                        <label class="label">Password</label>
+                        {{ form.password1 }}
+                    </div>
+                    <div class="group">
+                        {% comment %} <button type="submit">Sign In</button> {% endcomment %}
+                        {% comment %} <input type="submit" class="button" value="Sign In"> {% endcomment %}
+                    </div>
+                    
+                </form>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+					<label for="tab-2">Do you have account?</a>
+				</div>
+             </div> 
+            <div class="sign-up-htm">
+                {% csrf_token %}
+                    {% for f in form %}
+                    <div class="group">
+                        <label for="{{ f.id_for_label }}" class="label">{{f.label}}</label>
+                        {{ f }}
+                    </div>
+                    {% endfor %}
+                    <div class="group">
+                        <button type="submit">Register</button>
+                    </div> 
+                    {% comment %} <div class="group">
+                        <label for="{{ registration_form.password1.id_for_label }}" class="label">Password</label>
+                        {{ registration_form.password1 }}
+                    </div>
+                    <div class="group">
+                        <label for="{{ registration_form.password2.id_for_label }}" class="label">Repeat Password</label>
+                        {{ registration_form.password2 }}
+                    </div>
+                    <div class="group">
+                        <label for="{{ registration_form.email.id_for_label }}" class="label">Email Address</label>
+                        {{ registration_form.email }}
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div> {% endcomment %}
+                </form>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <label for="tab-1">Already Member?</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
 {% else %}
     <script>window.location.href = "/user_profile";</script>
