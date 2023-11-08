@@ -8,6 +8,7 @@ body {
 
 .movie-container {
     width: 80%;
+    position: relative;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -105,4 +106,65 @@ body {
     content: "#"; /* Добавляем символ "#" перед каждым ключевым словом */
     margin-right: 5px; /* Добавляем отступ между символом "#" и ключевым словом */
     color: #e50914; /* Устанавливаем цвет символа "#" */
+}
+
+/*.btn_add{
+    display: flex;
+    background-color: #795e8d;
+    position: absolute; 
+    top: 10px; 
+    color: #fff; 
+    border: none;
+    border-radius: 50%; 
+    width: 30px; 
+    height: 30px; 
+    font-size: 20px; 
+}*/
+
+.btn_add {
+    position: absolute;
+    top: 10px; /* Отступ сверху от верхней грани body */
+    right: 10px; /* Отступ справа от правой грани body */
+    background-color: #007bff; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    border: none;
+    border-radius: 50%; /* Делаем кнопку круглой */
+    width: 30px; /* Ширина */
+    height: 30px; /* Высота */
+    font-size: 20px; /* Размер шрифта */
+
+    &::before {
+        content: "Add a movie to viewed"; /* Текст подсказки */
+        position: absolute;
+        top: 30px; /* Расстояние от верхней грани кнопки до подсказки */
+        left: 50%; /* По центру кнопки */
+        transform: translateX(-50%); /* Центрируем подсказку относительно кнопки */
+        background-color: #795e8d36;
+        color: #fff;
+        padding: 5px;
+        width: 200px;
+        border-radius: 5px;
+        opacity: 0; /* Подсказка изначально невидима */
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Плавное появление подсказки */
+    }
+
+    /* Отображение подсказки при наведении */
+    &:hover::before {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.input_rate{
+    background-color: #795e8d4e;
+    position: absolute; 
+    top: 10px;
+right: 45px;
+    border: none;
+    width: 120px; 
+    height: 30px; 
+    border-radius: 2%;
+    font-size: 20px; 
+
 }
