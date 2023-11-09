@@ -12,5 +12,6 @@ urlpatterns = [
     path('movie/<int:movie_id>/', views.movie_detail, name='movie_detail'),
     path('movie/<int:movie_id>/add_to_history/', views.add_to_history, name='add_to_history'),
     path('search/', views.search_movies, name='search_movies'),
+    path('run_server_script/', views.run_server_script, name='run_server_script'),
 
 ]

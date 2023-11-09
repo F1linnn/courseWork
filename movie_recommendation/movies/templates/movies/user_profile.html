@@ -15,6 +15,10 @@
  <a href="{% url 'movie_list' %}">Вернуться на главную</a>
 
 <a href="{% url 'user_profile' %}" class="btn btn-primary">Просмотр истории</a>
+    <form method="post" action="{% url 'run_server_script' %}">
+    {% csrf_token %}
+    <button type="submit">Запустить скрипт на сервере</button>
+</form>
 
 <h2>История просмотров</h2>
 <ul>

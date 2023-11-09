@@ -6,7 +6,8 @@ from django.contrib.auth import login, authenticate
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-import csv
+from .alg_recommendation import recom
+# import csv
 
 def movie_list(request):
    
@@ -16,9 +17,11 @@ def movie_list(request):
 
 # @redirect_authenticated_user(redirect_url="/movies")
 class RegisterUser(CreateView):
+
     form_class = RegistrationForm
     template_name = 'movies/registration_page.html'
     success_url = reverse_lazy('user_profile')
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -67,13 +70,28 @@ def movie_detail(request, movie_id):
 def add_to_history(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
 
-    # Проверяем, что пользователь ещё не добавил фильм в историю просмотра
-    if not WatchedMovie.objects.filter(user=request.user, movie=movie).exists():
-        WatchedMovie.objects.create(user=request.user, movie=movie)
+    if request.method == 'POST':
+        rating = request.POST.get('rating')  # Получаем рейтинг из запроса
 
+        if rating and rating.isdigit():
+            rating = int(rating)
+            if 1 <= rating <= 10:
+                if not WatchedMovie.objects.filter(user=request.user, movie=movie).exists():
+                    WatchedMovie.objects.create(user=request.user, movie=movie, rating=int(rating))
+                else:
+                    history = WatchedMovie.objects.get(user=request.user, movie=movie)
+                    history.rating = rating
+                    history.save()
     return render(request, 'movies/movie_detail.html', {'movie': movie})
 
 def search_movies(request):
     query = request.GET.get('q', '')  # Получаем значение параметра 'q' из GET-запроса
     movies = Movie.objects.filter(title__icontains=query)  # Ищем фильмы с соответствующим заголовком
     return render(request, 'movies/movie_list.html', {'movies': movies})
+
+
+def run_server_script(request):
+    recom()
+    user = request.user
+    watched_movies = WatchedMovie.objects.filter(user=user)
+    return render(request, 'movies/user_profile.html', {'user': user, 'watched_movies': watched_movies})
