@@ -91,7 +91,16 @@ def search_movies(request):
 
 
 def run_server_script(request):
-    recom()
+    context = {}
+    movies = recom(request)
+    list = []
+    for id in movies:
+        list.append(Movie.objects.filter(pk=id)[0])
     user = request.user
     watched_movies = WatchedMovie.objects.filter(user=user)
-    return render(request, 'movies/user_profile.html', {'user': user, 'watched_movies': watched_movies})
+    context['user'] = user
+    context['watched_movies'] = watched_movies
+    context['recommended_movies'] = list
+    print("Here")
+    print(list)
+    return render(request, 'movies/user_profile.html', context=context)

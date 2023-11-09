@@ -28,5 +28,13 @@
         <li>Вы еще не просматривали ни одного фильма.</li>
     {% endfor %}
 </ul>
+<h2>Рекомендации</h2>
+<ul>
+    {% for movie in recommended_movies %}
+        <li><a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></li>
+    {% empty %}
+        <li>Вы еще не просматривали ни одного фильма.</li>
+    {% endfor %}
+</ul>
 </body>
 </html>
