@@ -22,5 +22,5 @@ class WatchedMovie(models.Model):
     rating = models.IntegerField(default=3)
 
     def __str__(self):
-        return f"{self.user.username} - {self.movie.title}"
+        return f"{self.user.username},id{self.user.id} - {self.movie.title}, Movieid{self.movie.id} - {self.rating}"
 
