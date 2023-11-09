@@ -1,5 +1,5 @@
 body{
-    background: url("../img/back_movie_list.jpg") no-repeat;
+    background: url("../img/back_main.jpg") no-repeat;
     background-size: cover;
     background-attachment: fixed;
     overflow-x: hidden;
@@ -15,20 +15,103 @@ head{
 
 
 
-/* Стиль для кнопок */
-.btn {
-    background-image: url('../img/myAccount.jpg'); /* Замените 'путь_к_изображению.jpg' на путь к вашему изображению */
-    background-size: cover; /* Растянуть изображение, чтобы оно занимало всю кнопку */
-    background-repeat: no-repeat; /* Запрет повтора изображения */
-    color: transparent; /* Сделать текст на кнопке невидимым */
-    border: none;
-    width: 100px;
-    height: 50px;
-    cursor: pointer;
-    /*padding: 10px 20px;
-    text-decoration: none;
-    color: #02fd56a4;
-    /*background-color: #3b526b;
-    border: none;
-    border-radius: 5px;*/
+/* Стили для кнопки "Личная страница" */
+.navbar {
+    text-align: right;
 }
+
+
+/* Стили для кнопки "My Account" (и других кнопок) */
+.navbar .btn, .navbar .sign_up, .navbar .log_in {
+    display: inline-block;
+    background: linear-gradient(to bottom, #FF6B6B, #FF5733);
+    border: 2px solid #FF5733;
+    color: white;
+    top: 10px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    text-align: center; /* Выравнивание текста по центру */
+    line-height: 1; /* Заполнение всей высоты кнопки */
+    transition: background 0.3s, border 0.3s;
+}
+
+.navbar .btn:hover, .navbar .sign_up:hover, .navbar .log_in:hover {
+    background: linear-gradient(to bottom, #FF5733, #FF6B6B);
+    border: 2px solid #FF6B6B;
+    cursor: pointer;
+}
+
+
+/* Стили для заголовка "Movies" */
+h1 {
+    text-align: center;
+    margin-top: 40px; /* Регулирует расстояние между заголовком и кнопкой "Личная страница" */
+}
+
+/* Стили для списка фильмов разделенного на три столбца */
+ol {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px; /* Расстояние между элементами */
+}
+
+ol li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f976;
+    margin-bottom: 20px;
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+/* Стили для ссылок на фильмы */
+ol li a {
+    text-decoration: none;
+    color: #FF5733;
+    font-weight: bold;
+    display: block; /* Сделать ссылку блочным элементом, чтобы срабатывала по всей границе элемента */
+    padding: 1px; /* Добавить отступы вокруг ссылки для увеличения области клика */
+    border: 1px solid transparent; /* Добавить границу для визуализации области клика */
+}
+
+/* Стили для наведения на ссылку */
+ol li a:hover {
+    background-color: #e5e5e500;
+    cursor: pointer;
+}
+
+
+form {
+    position: absolute;
+    top: 10px; /* Располагаем поисковую строку вверху */
+    left: 10px; /* Располагаем поисковую строку слева */
+    background: #33333363; /* Цвет фона поисковой строки */
+    padding: 5px;
+    border-radius: 20px;
+}
+
+input[type="text"] {
+    border: none;
+    background: transparent;
+    color: white;
+    padding: 5px;
+}
+
+button[type="submit"] {
+    background: linear-gradient(to bottom, #FF6B6B, #FF5733);
+    border: 2px solid #FF5733;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(to bottom, #FF5733, #FF6B6B);
+    border: 2px solid #FF6B6B;
+}
+
