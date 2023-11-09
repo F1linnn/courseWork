@@ -32,7 +32,7 @@ def recom():
 
     for i in item_prediction:
         print(i)
-    print("___________________")
+        print("___________________")
     for i in user_prediction:
         print(i)
 
