@@ -1,39 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Личная страница пользователя</title>
+    <title>Your account</title>
+    <link rel="stylesheet" href="{% static 'css/myAccount.css'%}" type="text/css">
 </head>
 <body>
-    <h1>Личная страница пользователя</h1>
-    <p>Имя пользователя: {{ user.username }}</p>
+    <h1>MyAccount</h1>
+    <p>Login: {{ user.username }}</p>
     <p>Email: {{ user.email }}</p>
 
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit">Выход</button>
+        <button type="submit">Exit</button>
     </form>
- <a href="{% url 'movie_list' %}">Вернуться на главную</a>
+ <a href="{% url 'movie_list' %}">Main page</a>
 
-<a href="{% url 'user_profile' %}" class="btn btn-primary">Просмотр истории</a>
     <form method="post" action="{% url 'run_server_script' %}">
     {% csrf_token %}
-    <button type="submit">Запустить скрипт на сервере</button>
+    <button type="submit">Recommendate movies</button>
 </form>
 
-<h2>История просмотров</h2>
+<h2>Viewed story</h2>
 <ul>
     {% for watched_movie in watched_movies %}
         <li>{{ watched_movie.movie.title }}</li>
     {% empty %}
-        <li>Вы еще не просматривали ни одного фильма.</li>
+        <li>No one movie has been viewed.</li>
     {% endfor %}
 </ul>
-<h2>Рекомендации</h2>
+<h2>Recommendation</h2>
 <ul>
     {% for movie in recommended_movies %}
         <li><a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></li>
     {% empty %}
-        <li>Вы еще не просматривали ни одного фильма.</li>
+    <li>No one movie has been viewed.</li>
     {% endfor %}
 </ul>
 </body>
