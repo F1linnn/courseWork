@@ -1,16 +1,44 @@
+{% load static %}
 {% if not user.is_authenticated %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Log in to account</title>
-</head>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/sign_login.css'%}" type="text/css">
+        <meta charset="UTF-8">
+    </head>
 <body>
 
-<form method="post">
-    {% csrf_token %}
+    <div class="login-wrap">
+        <div class="login-html">
+            {% comment %} <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label> {% endcomment %}
+            <input id="tab-1" type="radio" name="tab" class="sign-up" checked><label for="tab-1" class="tab">Sign In</label>
+            <div class="login-form">
+                <div class="sign-up-htm">
+                    <form method="post">
+                    {% csrf_token %}
+                    {% for f in form %}
+                    <div class="group">
+                        <label for="{{ f.id_for_label }}" class="label">{{f.label}}</label>
+                        {{ f }}
+                    </div>
+                        {% endfor %}
+                        <br><br>
+                        <div class="group">
+                            <button type="submit">Register</button>
+                        </div> 
+                    </form>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="{% url 'registration_page' %}">No account? Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
-<div class="form-error">{{ form.non_field_errors }}</div>
+{% comment %} <div class="form-error">{{ form.non_field_errors }}</div>
 
 {% for f in form %}
 <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
@@ -22,7 +50,7 @@
 <a href="{% url 'registration_page' %}">No account? Register</a>
 
 </body>
-</html>
+</html> {% endcomment %}
 {% else %}
     <script>window.location.href = "/user_profile";</script>
 {% endif %}

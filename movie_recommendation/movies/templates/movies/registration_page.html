@@ -1,82 +1,35 @@
+{% load static %}
 {% if not user.is_authenticated %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <link rel="stylesheet" href="{% static 'css/sign_login.css'%}" type="text/css">
     <meta charset="UTF-8">
-    <title>Страница Регистрации и Авторизации</title>
 </head>
 <body>
- <h1>Добро пожаловать на страницу регистрации и авторизации</h1>
-
- <form method="post">
-    {% csrf_token %}
-    {% for f in form %}
-    <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-    <div class="form-error">{{ f.errors }}</div>
-    {% endfor %}
-     <button type="submit">Register</button>
-    </form>
-
-<a href="{% url 'auth_page' %}">Do you have account? Log in</a>
 
 <div class="login-wrap">
     <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+        {% comment %} <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label> {% endcomment %}
+        <input id="tab-1" type="radio" name="tab" class="sign-up" checked><label for="tab-1" class="tab">Sign Up</label>
         <div class="login-form">
-            <div class="sign-in-htm">
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="group">
-                        <label for="{{ form.username.id_for_label }}" class="label">Username</label>
-                        {{ form.username }}
-                    </div>
-                    {% csrf_token %}
-                    <div class="group">
-                        <label class="label">Password</label>
-                        {{ form.password1 }}
-                    </div>
-                    <div class="group">
-                        {% comment %} <button type="submit">Sign In</button> {% endcomment %}
-                        {% comment %} <input type="submit" class="button" value="Sign In"> {% endcomment %}
-                    </div>
-                    
-                </form>
-                <div class="hr"></div>
-                <div class="foot-lnk">
-					<label for="tab-2">Do you have account?</a>
-				</div>
-             </div> 
             <div class="sign-up-htm">
+                <form method="post">
                 {% csrf_token %}
-                    {% for f in form %}
-                    <div class="group">
-                        <label for="{{ f.id_for_label }}" class="label">{{f.label}}</label>
-                        {{ f }}
-                    </div>
+                {% for f in form %}
+                <div class="group">
+                    <label for="{{ f.id_for_label }}" class="label">{{f.label}}</label>
+                    {{ f }}
+                </div>
                     {% endfor %}
+                    <br><br>
                     <div class="group">
                         <button type="submit">Register</button>
                     </div> 
-                    {% comment %} <div class="group">
-                        <label for="{{ registration_form.password1.id_for_label }}" class="label">Password</label>
-                        {{ registration_form.password1 }}
-                    </div>
-                    <div class="group">
-                        <label for="{{ registration_form.password2.id_for_label }}" class="label">Repeat Password</label>
-                        {{ registration_form.password2 }}
-                    </div>
-                    <div class="group">
-                        <label for="{{ registration_form.email.id_for_label }}" class="label">Email Address</label>
-                        {{ registration_form.email }}
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button" value="Sign Up">
-                    </div> {% endcomment %}
                 </form>
                 <div class="hr"></div>
                 <div class="foot-lnk">
-                    <label for="tab-1">Already Member?</label>
+                    <a href="{% url 'auth_page' %}">Already Member?</a>
                 </div>
             </div>
         </div>
