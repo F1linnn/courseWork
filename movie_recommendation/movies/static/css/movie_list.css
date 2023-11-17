@@ -1,95 +1,87 @@
-body{
-    background: url("../img/back_main.jpg") no-repeat;
-    background-size: cover;
+body {
+    /*background: url("../img/back_main.jpg") no-repeat;*/
+    background: rgba(86, 108, 164, 0.9);
+    /*background-size: cover;*/
     background-attachment: fixed;
     overflow-x: hidden;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #6a6f8c;
 }
 
-
-
-head{
+head {
     display: flex;
     align-items: flex-end;
     width: 100%;
 }
 
-
-
-/* Стили для кнопки "Личная страница" */
 .navbar {
     text-align: right;
 }
 
-
-/* Стили для кнопки "My Account" (и других кнопок) */
 .navbar .btn, .navbar .sign_up, .navbar .log_in {
     display: inline-block;
-    background: linear-gradient(to bottom, #FF6B6B, #FF5733);
-    border: 2px solid #FF5733;
+    background: linear-gradient(to bottom, #1e5ac2, #1161ee);
+    border: 2px solid #1161ee;
     color: white;
     top: 10px;
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
-    text-align: center; /* Выравнивание текста по центру */
-    line-height: 1; /* Заполнение всей высоты кнопки */
+    text-align: center;
+    line-height: 1;
     transition: background 0.3s, border 0.3s;
 }
 
 .navbar .btn:hover, .navbar .sign_up:hover, .navbar .log_in:hover {
-    background: linear-gradient(to bottom, #FF5733, #FF6B6B);
-    border: 2px solid #FF6B6B;
+    background: linear-gradient(to bottom, #1161ee, #1e5ac2);
+    border: 2px solid #1e5ac2;
     cursor: pointer;
 }
 
-
-/* Стили для заголовка "Movies" */
 h1 {
     text-align: center;
-    margin-top: 40px; /* Регулирует расстояние между заголовком и кнопкой "Личная страница" */
+    margin-top: 40px;
+    color: #0e306a;
 }
 
-/* Стили для списка фильмов разделенного на три столбца */
 ol {
     list-style: none;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px; /* Расстояние между элементами */
+    gap: 2px;
 }
 
 ol li {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 15px;
-    background-color: #f9f9f976;
+    background-color: rgba(255, 255, 255, 0.6);
     margin-bottom: 20px;
-    text-align: center; /* Выравнивание текста по центру */
+    text-align: center;
 }
 
-/* Стили для ссылок на фильмы */
 ol li a {
     text-decoration: none;
-    color: #FF5733;
+    color: #1e5ac2;
     font-weight: bold;
-    display: block; /* Сделать ссылку блочным элементом, чтобы срабатывала по всей границе элемента */
-    padding: 1px; /* Добавить отступы вокруг ссылки для увеличения области клика */
-    border: 1px solid transparent; /* Добавить границу для визуализации области клика */
+    display: block;
+    padding: 1px;
+    border: 1px solid transparent;
 }
 
-/* Стили для наведения на ссылку */
 ol li a:hover {
-    background-color: #e5e5e500;
+    background-color: #e5e5e5;
     cursor: pointer;
 }
 
-
 form {
     position: absolute;
-    top: 10px; /* Располагаем поисковую строку вверху */
-    left: 10px; /* Располагаем поисковую строку слева */
-    background: #33333363; /* Цвет фона поисковой строки */
+    top: 10px;
+    left: 10px;
+    background: rgba(51, 51, 51, 0.7);
     padding: 5px;
     border-radius: 20px;
 }
@@ -102,8 +94,8 @@ input[type="text"] {
 }
 
 button[type="submit"] {
-    background: linear-gradient(to bottom, #FF6B6B, #FF5733);
-    border: 2px solid #FF5733;
+    background: linear-gradient(to bottom, #1e5ac2, #1161ee);
+    border: 2px solid #1161ee;
     color: white;
     font-weight: bold;
     border-radius: 20px;
@@ -111,7 +103,6 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background: linear-gradient(to bottom, #FF5733, #FF6B6B);
-    border: 2px solid #FF6B6B;
+    background: linear-gradient(to bottom, #1161ee, #1e5ac2);
+    border: 2px solid #1e5ac2;
 }
-

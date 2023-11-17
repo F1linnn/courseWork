@@ -1,46 +1,44 @@
-/* Общие стили для страницы */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Open Sans', sans-serif;
+    background: rgba(86, 108, 164, 0.9);
     margin: 0;
-    padding: 0;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
     text-align: center;
 }
 
 h1 {
-    background-color: #FF6B6B;
+    background-color: #1e5ac2;
     color: white;
     padding: 20px 0;
 }
 
-/* Стили для блока информации об аккаунте */
 p {
     font-size: 18px;
 }
 
-/* Стили для кнопок */
 button {
-    background: #FF6B6B;
+    background: #1e5ac2;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    border-radius: 25px;
+    padding: 15px 20px;
     cursor: pointer;
     margin: 10px;
 }
 
 button:hover {
-    background: #FF5733;
+    background: #1161ee;
 }
 
-/* Стили для ссылок */
 a {
     text-decoration: none;
-    color: #FF6B6B;
+    color: #1e5ac2;
     font-weight: bold;
 }
 
-/* Стили для списков просмотренных и рекомендованных фильмов */
 ul {
     list-style: none;
     padding: 0;
@@ -51,7 +49,6 @@ ul li {
     margin: 5px;
 }
 
-/* Стили для сообщения о пустых списках */
 ul li:empty::before {
     content: "No movies to display.";
     font-style: italic;

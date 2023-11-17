@@ -21,3 +21,4 @@ movie_recommendation/movies/__pycache__/alg_recommendation.cpython-311.pyc
 movie_recommendation/movies/migrations/__pycache__/__init__.cpython-311.pyc
 movie_recommendation/movies/migrations/__pycache__/__init__.cpython-311.pyc
 movie_recommendation/movies/migrations/__pycache__/0002_watchedmovie_rating.cpython-311.pyc
+movie_recommendation/db.sqlite3
