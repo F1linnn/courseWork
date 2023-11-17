@@ -6,25 +6,25 @@
     <link rel="stylesheet" href="{% static 'css/myAccount.css'%}" type="text/css">
 </head>
 <body>
-    <h1>MyAccount</h1>
-    <p>Login: {{ user.username }}</p>
+    <h1>Hello, {{user.username}}</h1>
     <p>Email: {{ user.email }}</p>
 
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit">Exit</button>
+        <button type="submit" class="exit-btn">Exit</button>
     </form>
- <a href="{% url 'movie_list' %}">Main page</a>
+    
+    <a href="{% url 'movie_list' %}" class="main-page-link">Main page</a>
 
     <form method="post" action="{% url 'run_server_script' %}">
     {% csrf_token %}
     <button type="submit">Recommendate movies</button>
-</form>
+    </form>
 
 <h2>Viewed story</h2>
-<ul>
+<ul class="viewed-movies-list">
     {% for watched_movie in watched_movies %}
-        <li>{{ watched_movie.movie.title }}</li>
+        <li><a href="{% url 'movie_detail' watched_movie.movie.id %}">{{ watched_movie.movie.title }}</a></li>
     {% empty %}
         <li>No one movie has been viewed.</li>
     {% endfor %}

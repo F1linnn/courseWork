@@ -15,6 +15,12 @@ h1 {
     padding: 20px 0;
 }
 
+h2 {
+    background-color: #1e5ac2;
+    color: white;
+    padding: 20px 0;
+}
+
 p {
     font-size: 18px;
 }
@@ -35,8 +41,12 @@ button:hover {
 
 a {
     text-decoration: none;
-    color: #1e5ac2;
+    color: #ffffff;
     font-weight: bold;
+}
+
+a:hover {
+    background: #2b5eb6;
 }
 
 ul {
@@ -46,10 +56,45 @@ ul {
 
 ul li {
     font-size: 16px;
-    margin: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 ul li:empty::before {
     content: "No movies to display.";
     font-style: italic;
+    color: #ccc; /* Adjust the color as needed */
+}
+
+ul li:hover {
+    background: #1e5ac2; /* Highlight color on hover */
+}
+
+.main-page-link {
+    position: absolute;
+    top: 16px;
+    right: 80px;
+    background: #3262b6;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.exit-btn {
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    background: #3262b6;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 20px;
+    cursor: pointer;
+    margin: 10px;
+    font-weight: bold;
+    text-decoration: none;
 }
